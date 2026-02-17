@@ -13,7 +13,7 @@ class ComplianceIssue(TypedDict):
 #define the global graph state
 #this defines the state that gets passed around in the agentic workflow
 
-class VedioAuditState(TypedDict):
+class VideoAuditState(TypedDict):
     '''
     defining the data schema fro langgraoh execution content, holds information about the audit right from the initial url to the final report
     '''

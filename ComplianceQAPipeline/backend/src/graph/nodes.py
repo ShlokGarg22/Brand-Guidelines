@@ -10,10 +10,10 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import SystemMessage , HumanMessage
 
 #import state schema
-from backened.src.graph.state import VedioAuditState , ComplianceIssue
+from ComplianceQAPipeline.backend.src.graph.state import VideoAuditState , ComplianceIssue
 
 # import service
-from backened.src.services.vedio_indexer import VideoIndexerService
+from ComplianceQAPipeline.backend.src.services.vedio_indexer import VideoIndexerService
 
 #configure the logger
 logger = logging.getLogger("brand-gaurdian")
@@ -90,7 +90,7 @@ def audit_content_node(state: VideoAuditState) -> Dict[str, Any]:
     )
 
     embeddings = AzureOpenAIEmbeddings(
-        azure_deployment="text-embedding-3-small",
+        azure_deployment=os.getenv("AZURE_OPENAI_EMBEDDING_DEPLOYMENT", "text-embedding-3-small"),
         openai_api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
     )
 
