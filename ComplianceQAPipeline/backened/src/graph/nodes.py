@@ -161,7 +161,7 @@ def audit_content_node(state: VideoAuditState) -> Dict[str, Any]:
             "final_report": audit_data.get("final_report", "No report generated.")
         }
 
-    except Exception as e:
+    except Exception as e: 
         logger.error(f"System Error in Auditor Node: {str(e)}")
         # Log the raw response to see what went wrong
         logger.error(f"Raw LLM Response: {response.content if 'response' in locals() else 'None'}")
